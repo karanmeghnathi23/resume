@@ -1,0 +1,98 @@
+/* Additional global styles beyond Tailwind */
+
+/* Resume preview styles */
+.resume-preview {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #1e293b;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Print styles for PDF export */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .resume-preview, .resume-preview * {
+    visibility: visible;
+  }
+  
+  .resume-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.7);
+}
+
+/* Animation utilities */
+.animate-once {
+  animation-iteration-count: 1;
+}
+
+.animate-twice {
+  animation-iteration-count: 2;
+}
+
+.animate-thrice {
+  animation-iteration-count: 3;
+}
+
+/* Page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+}
